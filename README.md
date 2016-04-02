@@ -8,7 +8,7 @@ put this line in your Gemfile:
 ```
 gem 'geo_rails'
 or
-gem 'geo_rails', :github => 'asmsuechan/geo_api'
+gem 'geo_rails', :github => 'asmsuechan/geo_rails'
 ```
 
 and bundle install:
