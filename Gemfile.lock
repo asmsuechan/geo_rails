@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    geo_api (0.0.21)
+    geo_api (0.0.5)
       rails (~> 4.2.6)
 
 GEM
