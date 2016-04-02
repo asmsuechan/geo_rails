@@ -18,23 +18,22 @@ $ bundle install
 #Usage
 This gem is implemented as a view helper and uses Geolocation API of HTML5 to get the geolocation.
 
-Just call render_geo helper:
+* Just call render_geo helper:
 ```
 <%= render_geo %>
 ```
-When your application gets the geolocation, ajax posts parameters. Latitude is in params[:lat], longitude is in params[:lng].
+* When your application gets the geolocation, ajax posts parameters. Latitude is in params[:lat], longitude is in params[:lng].
 
-Parameters are like this:
+ Parameters are like this:
 ```
 Started POST "/users/" for ::1 at 2016-04-02 19:34:12 +0900
 Processing by UsersController#create as */*
   Parameters: {"lat"=>"**.*******", "lng"=>"***.*******", "authenticity_token"=>"Pzg8jPzpvXsYS/gYU29AtRlso3g0FG9KAqRUgi4QxdgPdlsVidMLGQlJZeXsPOTyCIRicL9Ucm5KlPEpVlocUg=="}
 ```
 
-Please put this into \<head\> or the end of \<body\> as you can.
+* Please put this into \<head\> or the end of \<body\> as you can.
 
-##Options
-* url option
+##URL option
 By default, the parameters is posted at the accessed controller.
 
 And you can control ahead to post by using url option.
