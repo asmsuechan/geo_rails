@@ -1,4 +1,4 @@
-module GeoApi
+module GeoRails
   module GetGeo
     def render_geo(url = {})
       render_url = self.controller_name + "/" 
