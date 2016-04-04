@@ -18,7 +18,7 @@ if( navigator.geolocation )
         data: {
           lat: lat,
           lng: lng,
-          "authenticity_token": $("#authenticity_token").val()
+          authenticity_token: $("#authenticity_token").val()
           }
         });
 
@@ -42,7 +42,7 @@ if( navigator.geolocation )
         url: "<%= url  %>" , 
         data: {
           error: errorMessage,
-          "authenticity_token": $("#authenticity_token").val()
+          authenticity_token: $("#authenticity_token").val()
           }
         });
 
@@ -65,7 +65,7 @@ else
     url: "<%= url  %>" , 
     data: {
       error: "unsupported browser", 
-      "authenticity_token": $("#authenticity_token").val()
+      authenticity_token: $("#authenticity_token").val()
       }
     });
 }
