@@ -1,12 +1,12 @@
-#GeoApi
-GeoApi is able to use geolocation on Rails.
+#GeoRails
+GeoRails is able to use geolocation on Rails.
 
 #Install
 
 put this line in your Gemfile:
 
 ```
-gem 'geo_api'
+gem 'geo_rails'
 ```
 
 and bundle install:

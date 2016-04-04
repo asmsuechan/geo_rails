@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :geo_api do
+# task :geo_rails do
 #   # Task goes here
 # end
