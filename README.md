@@ -24,22 +24,13 @@ This gem is implemented as a view helper and uses Geolocation API of HTML5 to ge
 ```
 <%= render_geo %>
 ```
-* When your application gets the geolocation, ajax posts parameters. Latitude is in params[:lat], longitude is in params[:lng].
+* When your application gets the geolocation, ajax posts parameters. Latitude is in params[:lat], longitude is in params[:lng], and error is in params[:error].
 
- Parameters are like this:
+Parameters are like this:
 ```
-Started POST "/users/" for ::1 at 2016-04-02 19:34:12 +0900
+Started POST "/users/" for ::1 at 2016-04-05 21:05:45 +0900
 Processing by UsersController#create as */*
-  Parameters: {"lat"=>"**.*******", "lng"=>"***.*******", "authenticity_token"=>"Pzg8jPzpvXsYS/gYU29AtRlso3g0FG9KAqRUgi4QxdgPdlsVidMLGQlJZeXsPOTyCIRicL9Ucm5KlPEpVlocUg=="}
-```
-
-* When you get an error, this is in params[:error].
-
- Parameters are like this:
-```
-Started POST "/users/" for ::1 at 2016-04-05 20:00:21 +0900
-Processing by UsersController#create as */*
-  Parameters: {"error"=>"unauthorized", "authenticity_token"=>"CdLcu3mClin6z8L03WYop63L54HbelNN4AwmyKGzkhMyVWyGXHPvJIRTdcZUfkj55tl7Eehs4C7JVg3L8lNeLQ=="}
+   Parameters: {"lat"=>"35.68051", "lng"=>"139.7022992", "error"=>"", "authenticity_token"=>"hcw8jqFUfagr7MR6N5BswcQ+/Nl2d2Ch7YdkyUAsEU6+S4yzhKUEpVVwc0i+iAyfjyxgSUVh08LE3U/KE8zdcA=="}
 ```
 
 * Please put this into \<head\> or the end of \<body\> as you can.
