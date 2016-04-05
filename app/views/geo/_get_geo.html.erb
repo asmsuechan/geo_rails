@@ -1,73 +1,49 @@
 <%= hidden_field_tag "authenticity_token", form_authenticity_token %>
 <script>
-if( navigator.geolocation )
-{
-  navigator.geolocation.getCurrentPosition(
-
-    function( position )
-    {
-      var data = position.coords ;
-
-      var lat = data.latitude ;
-      var lng = data.longitude ;
-
-      //post geolocation
-      $.ajax({
-        type :"POST",
-        url: "<%= url  %>" , 
-        data: {
-          lat: lat,
-          lng: lng,
-          authenticity_token: $("#authenticity_token").val()
-          }
-        });
-
-    },
-
-    function( error )
-    {
-        var errorInfo = [
-        "unknown error" ,
-        "unauthorized" ,
-        "cannot get information" ,
-        "timeout"
-      ] ;
-
-      var errorNo = error.code ;
-      var errorMessage = errorInfo[ errorNo ] ;
-
-      //error handling
-      $.ajax({
-        type :"POST",
-        url: "<%= url  %>" , 
-        data: {
-          error: errorMessage,
-          authenticity_token: $("#authenticity_token").val()
-          }
-        });
-
-    } ,
-
-    {
-      "enableHighAccuracy": false,
-      "timeout": 8000,
-      "maximumAge": 2000,
-    }
-
-  ) ;
-}
-
-else
-{
-  //error handling
+  function geo_params(latitude, longitude, err_msg){
   $.ajax({
     type :"POST",
     url: "<%= url  %>" , 
     data: {
-      error: "unsupported browser", 
+      lat: latitude,
+      lng: longitude,
+      error: err_msg,
       authenticity_token: $("#authenticity_token").val()
       }
     });
-}
+  };
 
+if( navigator.geolocation )
+{
+  function position(pos){
+    var data = pos.coords;
+    var lat  = data.latitude;
+    var lng  = data.longitude;
+    geo_params(lat, lng, null);
+  };
+
+  function error(err){
+    var errorInfo = [
+      "unknown error" ,
+      "unauthorized" ,
+      "cannot get information" ,
+      "timeout"
+    ];
+    var errorNo = err.code ;
+    var errorMessage = errorInfo[ errorNo ] ;
+    geo_params(null, null, errorMessage);
+  };
+
+  var options = {
+      "enableHighAccuracy": false,
+      "timeout": 8000,
+      "maximumAge": 2000,
+    };
+
+  navigator.geolocation.getCurrentPosition(position, error, options); 
+ 
+} else {
+  var errorMessage = "unsupported browser";
+  geo_params(null, null, errorMessage);
+}
 </script>
