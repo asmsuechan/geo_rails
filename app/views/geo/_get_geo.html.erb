@@ -35,10 +35,10 @@ if( navigator.geolocation )
   };
 
   var options = {
-      "enableHighAccuracy": false,
-      "timeout": 8000,
-      "maximumAge": 2000,
-    };
+    enableHighAccuracy: "<%= high_accuracy %>",
+    timeout: "<%= timeout %>",
+    maximumAge: "<%= maximum_age %>",
+  };
 
   navigator.geolocation.getCurrentPosition(position, error, options); 
  
