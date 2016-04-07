@@ -48,12 +48,18 @@ for example:
 
 then, parameters is posted at users#create.
 
-##Anther option
+##geolocation api options
 You can use high_accuracy, timeout and maximum_age options.
 
 for example:
 ```
-<%= render_geo(high_accuracy: true, timeout: 10000, maximum_age: 1000) %>
+<%= render_geo(high_accuracy: true, timeout: 10000, maximum_age: 1000, :url => {:controller => "users", :action => "create"}) %>
+```
+
+##watchPosition()
+You can use watchPosition() if you specify watch option to true
+```
+<%= render_geo(watch: true) %>
 ```
 
 
