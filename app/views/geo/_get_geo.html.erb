@@ -40,7 +40,11 @@ if( navigator.geolocation )
     maximumAge: "<%= maximum_age %>",
   };
 
-  navigator.geolocation.getCurrentPosition(position, error, options); 
+  <% if watch %>
+    navigator.geolocation.watchPosition(position, error, options); 
+  <% else %>
+    navigator.geolocation.getCurrentPosition(position, error, options); 
+  <% end %>
  
 } else {
   var errorMessage = "unsupported browser";
