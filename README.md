@@ -46,6 +46,15 @@ for example:
 
 then, parameters is posted at users#create.
 
+##Anther option
+You can use high_accuracy, timeout and maximum_age options.
+
+for example:
+```
+<%= render_geo(high_accuracy: true, timeout: 10000, maximum_age: 1000) %>
+```
+
+
 #More information
 More information about Geolocation API, check [here](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition).
 
